@@ -68,6 +68,7 @@ class ReverseStemmer(object):
         for key in self.suffixes.keys():
             if token_string.endswith(key):
                 self.generate_more_greek_words(token_string, key)
+                break
 
         return self.greek_words
 
