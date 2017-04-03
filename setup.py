@@ -46,7 +46,7 @@ def get_package_data(package):
 
 setup(
     name='python-greeklish',
-    version='1.0.0',
+    version='1.1.0',
     url='https://github.com/Giaola/python-greeklish',
     license='MIT',
     description='A greek to greeklish converter.',

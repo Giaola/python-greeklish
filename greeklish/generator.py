@@ -3,48 +3,48 @@
 class Generator(object):
     # α, ε, ι, η, υ, ο, ω
     ACCENTS = {
-        'ά': 'α',
-        'έ': 'ε',
-        'ή': 'η',
-        'ί': 'ι',
-        'υ': 'υ',
-        'ό': 'ο',
-        'ώ': 'ω'
+        u'ά': u'α',
+        u'έ': u'ε',
+        u'ή': u'η',
+        u'ί': u'ι',
+        u'υ': u'υ',
+        u'ό': u'ο',
+        u'ώ': u'ω'
     }
 
     # Constant variables that represent the character that substitutes
     # a digraph.
-    AI = "Α"
-    EI = "Ε"
-    OI = "Ο"
-    OY = "Υ"
-    EY = "Φ"
-    AY = "Β"
-    MP = "Μ"
-    GG = "Γ"
-    GK = "Κ"
-    NT = "Ν"
+    AI = u"Α"
+    EI = u"Ε"
+    OI = u"Ο"
+    OY = u"Υ"
+    EY = u"Φ"
+    AY = u"Β"
+    MP = u"Μ"
+    GG = u"Γ"
+    GK = u"Κ"
+    NT = u"Ν"
 
     # The possible digraph cases.
     DIGRAPH_CASES = [
-        ["αι", AI], ["ει", EI], ["οι", OI], ["ου", OY],
-        ["ευ", EY], ["αυ", AY], ["μπ", MP], ["γγ", GG],
-        ["γκ", GK], ["ντ", NT]
+        [u"αι", AI], [u"ει", EI], [u"οι", OI], [u"ου", OY],
+        [u"ευ", EY], [u"αυ", AY], [u"μπ", MP], [u"γγ", GG],
+        [u"γκ", GK], [u"ντ", NT]
     ]
 
     # The possible string conversions for each case.
     CONVERT_STRINGS = [
-        [AI, "ai", "e"], [EI, "ei", "i"], [OI, "oi", "i"],
-        [OY, "ou", "oy", "u"], [EY, "eu", "ef", "ev", "ey"],
-        [AY, "au", "af", "av", "ay"], [MP, "mp", "b"],
-        [GG, "gg", "g"], [GK, "gk", "g"], [NT, "nt", "d"],
-        ["α", "a"], ["β", "b", "v"], ["γ", "g"], ["δ", "d"],
-        ["ε", "e"], ["ζ", "z"], ["η", "h", "i"], ["θ", "th"],
-        ["ι", "i"], ["κ", "k"], ["λ", "l"], ["μ", "m"],
-        ["ν", "n"], ["ξ", "ks", "x"], ["ο", "o"], ["π", "p"],
-        ["ρ", "r"], ["σ", "s"], ["ς", "s"], ["τ", "t"], ["υ", "y", "u", "i"],
-        ["φ", "f", "ph"], ["χ", "x", "h", "ch"], ["ψ", "ps"],
-        ["ω", "w", "o", "v"]
+        [AI, u"ai", u"e"], [EI, u"ei", u"i"], [OI, u"oi", u"i"],
+        [OY, u"ou", u"oy", u"u"], [EY, u"eu", u"ef", u"ev", u"ey"],
+        [AY, u"au", u"af", u"av", u"ay"], [MP, u"mp", u"b"],
+        [GG, u"gg", u"g"], [GK, u"gk", u"g"], [NT, u"nt", u"d"],
+        [u"α", u"a"], [u"β", u"b", u"v"], [u"γ", u"g"], [u"δ", u"d"],
+        [u"ε", u"e"], [u"ζ", u"z"], [u"η", u"h", u"i"], [u"θ", u"th"],
+        [u"ι", u"i"], [u"κ", u"k"], [u"λ", u"l"], [u"μ", u"m"],
+        [u"ν", u"n"], [u"ξ", u"ks", u"x"], [u"ο", u"o"], [u"π", u"p"],
+        [u"ρ", u"r"], [u"σ", u"s"], [u"ς", u"s"], [u"τ", u"t"], [u"υ", u"y", u"u", u"i"],
+        [u"φ", u"f", u"ph"], [u"χ", u"x", u"h", u"ch"], [u"ψ", u"ps"],
+        [u"ω", u"w", u"o", u"v"]
     ]
 
     def __init__(self, max_expansions):

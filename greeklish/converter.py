@@ -4,7 +4,7 @@ from .reverse_stemmer import ReverseStemmer
 from .generator import Generator
 
 class Converter(object):
-    GREEK_CHARACTERS = "αβγδεζηθικλμνξοπρσςτυφχψω"
+    GREEK_CHARACTERS = u"αβγδεζηθικλμνξοπρσςτυφχψω"
 
     def __init__(self, max_expansions, generate_greek_variants):
         self.greek_words = []
@@ -27,7 +27,9 @@ class Converter(object):
 
 
     def is_greek_word(self, input_token):
+        print(self.GREEK_CHARACTERS)
         for char in input_token:
+            print(char)
             if char not in self.GREEK_CHARACTERS:
                 return False
 
