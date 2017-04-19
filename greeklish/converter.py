@@ -41,7 +41,7 @@ class Converter(object):
                             and no punctuation.
         :return:            Greeklish phrases generated.
         """
-        self.phrase_words = phrase.split(sep=' ')
+        self.phrase_words = phrase.split(' ')
 
         for word in self.phrase_words:
             if not self.is_greek_word(word):
