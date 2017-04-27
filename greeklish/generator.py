@@ -39,7 +39,7 @@ class Generator(object):
         [AY, u"au", u"af", u"av", u"ay"], [MP, u"mp", u"b"],
         [GG, u"gg", u"g"], [GK, u"gk", u"g"], [NT, u"nt", u"d"],
         [u"α", u"a"], [u"β", u"b", u"v"], [u"γ", u"g"], [u"δ", u"d"],
-        [u"ε", u"e"], [u"ζ", u"z"], [u"η", u"h", u"i"], [u"θ", u"th"],
+        [u"ε", u"e"], [u"ζ", u"z"], [u"η", u"h", u"i"], [u"θ", u"th", u"8"],
         [u"ι", u"i"], [u"κ", u"k"], [u"λ", u"l"], [u"μ", u"m"],
         [u"ν", u"n"], [u"ξ", u"ks", u"x"], [u"ο", u"o"], [u"π", u"p"],
         [u"ρ", u"r"], [u"σ", u"s"], [u"ς", u"s"], [u"τ", u"t"], [u"υ", u"y", u"u", u"i"],
