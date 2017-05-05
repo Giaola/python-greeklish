@@ -5,7 +5,7 @@ This Python library converts any given Greek string to Greeklish.
 ```sudo python setup.py install```
 
 ## How to use it
-```
+```python
 from greeklish.converter import Converter
 myconverter = Converter(max_expansions=4, generate_greek_variants=False)
 print myconverter.convert(u'μια φορά και έναν καιρό.')
