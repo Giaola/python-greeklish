@@ -5,28 +5,27 @@ import itertools
 from .reverse_stemmer import ReverseStemmer
 from .generator import Generator
 
+
 class Converter(object):
     GREEK_CHARACTERS = u"αβγδεζηθικλμνξοπρσςτυφχψω"
 
-    def __init__(self, max_expansions, generate_greek_variants):
+    def __init__(self, max_expansions=4, generate_greek_variants=False):
         self.reverse_stemmer = ReverseStemmer()
         self.generator = Generator(max_expansions)
         self.generate_greek_variants = generate_greek_variants
 
-
     def convert(self, input_token):
         self.greek_words = []
-
-        if not self.is_greek_word(input_token):
-            return None
+        input_token = input_token.lower()
 
         if self.generate_greek_variants:
+            if not self.is_greek_word(input_token):
+                return None
             self.greek_words = self.reverse_stemmer.generate_greek_variants(input_token)
         else:
             self.greek_words.append(input_token)
 
         return self.generator.generate_greeklish_words(self.greek_words)
-
 
     def convert_phrase(self, phrase):
         """
@@ -41,14 +40,15 @@ class Converter(object):
                             and no punctuation.
         :return:            Greeklish phrases generated.
         """
+        phrase = phrase.lower()
         self.phrase_words = phrase.split(' ')
 
-        for word in self.phrase_words:
-            if not self.is_greek_word(word):
-                return None
 
         self.converted_phrase_words = []
         if self.generate_greek_variants:
+            for word in self.phrase_words:
+                if not self.is_greek_word(word):
+                    return None
             for word in self.phrase_words:
                 converted_stemmed_words = []
                 stemmed_words = self.reverse_stemmer.generate_greek_variants(word)
@@ -64,8 +64,6 @@ class Converter(object):
 
         return [" ".join(tuple)
                 for tuple in list(itertools.product(*self.converted_phrase_words))]
-
-
 
     def is_greek_word(self, input_token):
         for char in input_token:
