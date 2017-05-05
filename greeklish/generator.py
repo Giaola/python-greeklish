@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 class Generator(object):
     # α, ε, ι, η, υ, ο, ω
     ACCENTS = {
@@ -7,17 +8,17 @@ class Generator(object):
         u'έ': u'ε',
         u'ή': u'η',
         u'ί': u'ι',
-        u'υ': u'υ',
+        u'ύ': u'υ',
         u'ό': u'ο',
         u'ώ': u'ω'
     }
 
     # Constant variables that represent the character that substitutes
     # a digraph.
-    AI = u"Α"
-    EI = u"Ε"
-    OI = u"Ο"
-    OY = u"Υ"
+    AI = u"a"
+    EI = u"b"
+    OI = u"c"
+    OY = u"d"
     EY = u"Φ"
     AY = u"Β"
     MP = u"Μ"
@@ -51,15 +52,14 @@ class Generator(object):
         self.max_expansions = max_expansions
         self.greeklish_list = []
         self.per_word_greeklish = []
-        self.digraphs = { }
-        self.conversions = { }
+        self.digraphs = {}
+        self.conversions = {}
 
         for case in self.DIGRAPH_CASES:
             self.digraphs[case[0]] = case[1]
 
         for string in self.CONVERT_STRINGS:
             self.conversions[string[0]] = string[1:]
-
 
     def remove_accent_chars(self, word):
         for accent_char in self.ACCENTS:
@@ -77,13 +77,14 @@ class Generator(object):
 
             greek_word = self.remove_accent_chars(greek_word)
 
-            initial_token = greek_word
-
             for key in self.digraphs:
                 greek_word = greek_word.replace(key, self.digraphs[key])
 
             for greek_char in greek_word:
-                self.add_character(self.conversions[greek_char])
+                if greek_char in self.conversions:
+                    self.add_character(self.conversions[greek_char])
+                else:
+                    self.add_character(greek_char)
 
             for word in self.per_word_greeklish:
                 self.greeklish_list.append(word)
@@ -106,6 +107,6 @@ class Generator(object):
                 for token in self.per_word_greeklish:
                     if len(new_tokens) >= self.max_expansions:
                         break
-                    new_tokens.append(token+convert_string)
+                    new_tokens.append(token + convert_string)
 
             self.per_word_greeklish = new_tokens
