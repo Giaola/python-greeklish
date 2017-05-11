@@ -11,7 +11,7 @@ or
 ## How to use it
 ```python
 from greeklish.converter import Converter
-myconverter = Converter(max_expansions=4, generate_greek_variants=False)
+myconverter = Converter(max_expansions=4)
 print myconverter.convert(u'μια φορά και έναν καιρό.')
 ```
 
