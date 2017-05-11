@@ -1,5 +1,5 @@
 # Greeklish Converter
-This Python library converts any given Greek string to Greeklish. It only supports lower case letters, so it automatically converts them.
+This Python library converts any given Greek string to Greeklish.
 
 ## Install
 ```sudo python setup.py install```
