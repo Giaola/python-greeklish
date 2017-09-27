@@ -135,6 +135,9 @@ class Generator(object):
         return self.greeklish_list
 
     def remove_accent_chars(self, word):
+        if not isinstance(word,basestring):
+            return word
+        
         for accent_char in self.ACCENTS:
             word = word.replace(accent_char, self.ACCENTS[accent_char])
         return word
