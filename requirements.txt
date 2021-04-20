@@ -7,7 +7,7 @@ Jinja2==2.9.5
 MarkupSafe==1.0
 packaging==16.8
 pluggy==0.4.0
-py==1.4.33
+py==1.10.0
 Pygments==2.2.0
 pyparsing==2.2.0
 pytz==2017.2
